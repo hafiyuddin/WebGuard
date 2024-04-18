@@ -31,14 +31,7 @@ jobs:
       - name: Run Bandit Security Scan
         run: |
           pip install bandit
-          bandit -r webguard/ -f json -o bandit-report.json
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: bandit-findings
-          path: bandit-report.json
+          bandit -r webguard/ 
 
       - name: Automated Testing
         run: python manage.py test
