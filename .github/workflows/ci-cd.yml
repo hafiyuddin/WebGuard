@@ -29,7 +29,7 @@ jobs:
           python manage.py test  # Run Django tests
 
       - name: Security Scanning
-        uses: zaproxy/action-baseline@v1
+        uses: zaproxy/action-baseline@main
         with:
           target: http://localhost:8000
 
