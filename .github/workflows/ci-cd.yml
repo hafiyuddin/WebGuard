@@ -1,0 +1,34 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, uat]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Security Scanning
+        run: |
+          # Run security scanning tool here
+
+      - name: Run Tests
+        run: |
+          python manage.py test
+
+      - name: Deploy Locally
+        run: |
+          python manage.py runserver
