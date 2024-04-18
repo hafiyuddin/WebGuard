@@ -30,7 +30,8 @@ jobs:
 
       - name: Security Scanning with OWASP ZAP
         run: |
-          docker run owasp/zap2docker-stable zap-cli --spider --scanners active --start "http://localhost:8000"
+          docker run --rm owasp/zap2docker-stable zap-baseline.py -t http://localhost:8000
+
 
 
 
