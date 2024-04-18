@@ -1,5 +1,4 @@
-# myapp/views.py
-import os  # Import the os module
+# webguard/views.py
 from django.shortcuts import render
 
 def homepage(request):
