@@ -28,10 +28,14 @@ jobs:
         run: |
           python manage.py test  # Run Django tests
 
-      - name: Security Scanning
-        uses: zaproxy/action-baseline@main
-        with:
-          target: http://localhost:8000  # Replace with the URL of your application
+      - name: Security Scanning with OWASP ZAP
+        run: |
+          # Install OWASP ZAP (example command, adjust as needed)
+          apt-get update && apt-get install -y zaproxy
+
+          # Run OWASP ZAP scan against your application (example command, adjust as needed)
+          zap-cli --zap-path /usr/bin/zaproxy --spider --ajax spider --scanners active --start "http://localhost:8000"
+
 
 
       - name: Automated Testing
