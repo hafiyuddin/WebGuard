@@ -28,17 +28,13 @@ jobs:
         run: |
           python manage.py test  # Run Django tests
 
-      - name: Security Scanning with OWASP ZAP
-        run: |
-          docker run --rm owasp/zap2docker-stable zap-baseline.py -t http://localhost:8000
-
-
+      - name: Security Scanning
+        uses: zaproxy/action-baseline@main
+        with:
+          target: http://localhost:8000  # Replace with the URL of your application
 
 
       - name: Automated Testing
         run: python manage.py test
 
-      - name: Deploy to Localhost
-        run: |
-          docker build -t webguard-image .
-          docker run -d -p 8000:8000 webguard-image
+    
