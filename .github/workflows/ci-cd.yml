@@ -30,11 +30,8 @@ jobs:
 
       - name: Security Scanning with OWASP ZAP
         run: |
-          # Install OWASP ZAP (example command, adjust as needed)
-          apt-get update && apt-get install -y zaproxy
+          docker run owasp/zap2docker-stable zap-cli --spider --scanners active --start "http://localhost:8000"
 
-          # Run OWASP ZAP scan against your application (example command, adjust as needed)
-          zap-cli --zap-path /usr/bin/zaproxy --spider --ajax spider --scanners active --start "http://localhost:8000"
 
 
       - name: Automated Testing
