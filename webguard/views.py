@@ -3,4 +3,4 @@ import os  # Import the os module
 from django.shortcuts import render
 
 def homepage(request):
-    return render(request, 'myapp/homepage.html')
+    return render(request, 'webguard/homepage.html')
