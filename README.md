@@ -27,7 +27,7 @@ This project includes a CI/CD pipeline using GitHub Actions for continuous integ
 # 1. Build and Test
 - Install dependencies
 - Run functional tests using Django's built-in testing framework
-- Run security scans using Bandit
+- Run security scans using Bandit (We use '|| true' to ensure that the workflow continues even if the Bandit scan fails.)
 
 # Workflow Configuration
 The CI/CD workflow is defined in the .github/workflows/ci-cd.yml file. It is configured to trigger on pushes to the main or uat branch. Each step of the workflow is defined to ensure the proper functioning and security of the application.
