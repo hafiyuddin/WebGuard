@@ -31,7 +31,7 @@ jobs:
       - name: Run Bandit Security Scan
         run: |
           pip install bandit
-          bandit -r webguard/ 
+          bandit -r webguard/ -ll
 
       - name: Automated Testing
         run: python manage.py test
